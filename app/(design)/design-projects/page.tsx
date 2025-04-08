@@ -1,7 +1,7 @@
 import React from "react";
 import Image from "next/image";
 
-export const images = [
+const images = [
   "/AS/AN/img12.jpg",
   "/AS/1.jpg",
   "/AS/3d_stretch_ceiling.2e16d0ba.fill-377x210.jpg",
@@ -32,7 +32,7 @@ export const images = [
 const ProjectsPage = () => {
   return (
     <>
-      <div className="columns-1 sm:columns-2 lg:columns-4 gap-4 space-y-4 pt-[68px]">
+      <div className="columns-1 sm:columns-2 lg:columns-4 gap-4 space-y-4 pt-[68px] w-[90%] m-auto lg:w-full">
         {images.map((src, i) => (
           <div
             key={i}
