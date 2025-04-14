@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "../globals.css";
-import DesktopNav from "../Components/Navbar/DesktopNav";
+import Navbar from "../Components/Navbar/Navbar";
+import Footer from "../Components/Footer/Footer";
 
 export const metadata: Metadata = {
   title: "VA Concepts",
@@ -8,12 +9,17 @@ export const metadata: Metadata = {
 };
 
 export default function BlogLayout({
-    children,
-  }: {
-    children: React.ReactNode
-  }) {
-    return <section>
-      <DesktopNav />
-      
-      {children}</section>
-  }
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  return (
+    <section>
+      <Navbar />
+
+      {children}
+
+      <Footer />
+    </section>
+  );
+}

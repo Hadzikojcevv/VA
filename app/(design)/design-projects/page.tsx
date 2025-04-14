@@ -1,56 +1,63 @@
+"use client";
 import React from "react";
 import Image from "next/image";
+import { projects } from "@/app/Components/InteriorDesign/ProjectsSection";
+import { motion } from "framer-motion";
+import Link from "next/link";
 
-const images = [
-  "/AS/AN/img12.jpg",
-  "/AS/1.jpg",
-  "/AS/3d_stretch_ceiling.2e16d0ba.fill-377x210.jpg",
+const containerVariants = {
+  hidden: {},
+  show: {
+    transition: {
+      staggerChildren: 0.15,
+    },
+  },
+};
 
-  "/AS/3.jpg",
-  "/AS/Beti Salon render 2.jpg",
-
-  "/AS/4.jpg",
-
-  "/AS/5.jpg",
-  "/AS/AN/img9.jpg",
-  "/AS/AN/img10.jpg",
-  "/AS/6.jpg",
-  "/AS/1.jpg",
-  "/AS/AN/img11.jpg",
-  "/AS/2.jpg",
-  "/AS/spalna soba 6.jpg",
-  "/AS/AN/img12.jpg",
-
-  "/AS/4.jpg",
-  // "/AS/5.jpg",
-  "/AS/6.jpg",
-  "/AS/3d_stretch_ceiling.2e16d0ba.fill-377x210.jpg",
-
-  // add more image paths as needed
-];
+const cardVariants = {
+  hidden: { opacity: 0, y: 20 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } },
+};
 
 const ProjectsPage = () => {
   return (
     <>
-      <div className="columns-1 sm:columns-2 lg:columns-4 gap-4 space-y-4 pt-[68px] w-[90%] m-auto lg:w-full">
-        {images.map((src, i) => (
-          <div
-            key={i}
+      <motion.section
+        className="columns-1 sm:columns-2 lg:columns-4 gap-4 space-y-4 w-[90%] m-auto lg:w-full pt-[88px] pb-4"
+        variants={containerVariants}
+        initial="hidden"
+        animate="show"
+      >
+        {projects.map((project, i) => (
+          <motion.div
+            key={project.id}
             className="break-inside-avoid overflow-hidden relative group"
+            variants={cardVariants}
           >
-            <Image
-              src={src}
-              alt={`grid-${i}`}
-              width={1000}
-              height={200}
-              className="w-full h-auto object-cover fill-black hover:brightness-50 brightness-100 transition-all ease-in-out duration-250 hover:scale-105"
-            />
-            <h2 className="absolute hidden group-hover:block top-[50%] left-[50%] transform -translate-x-1/2 -translate-y-1/2 font-title font-bold text-2xl text-white uppercase">
-              Title
-            </h2>
-          </div>
+            <Link href={`/design-projects/${project.id}`}>
+              <p className="absolute bottom-1 right-1 z-50 font-thin tracking-widest text-white uppercase opacity-60 ease-in-out group-hover:opacity-100">
+                VA Concepts
+              </p>
+
+              <Image
+                src={project.gallery[0]}
+                alt={`grid-${i}`}
+                width={1000}
+                height={200}
+                className="w-full h-auto object-cover fill-black hover:brightness-50 brightness-100 transition-all ease-in-out duration-250 hover:scale-105"
+              />
+              <div className="absolute hidden group-hover:block top-[50%] left-[50%] transform -translate-x-1/2 -translate-y-1/2 text-center">
+                <h2 className=" font-bold text-5xl text-white uppercase">
+                  {project.title}
+                </h2>
+                <h3 className="font-thin text-lg text-white tracking-tighter">
+                  {project.location} - {project.date}
+                </h3>
+              </div>
+            </Link>
+          </motion.div>
         ))}
-      </div>
+      </motion.section>
     </>
   );
 };

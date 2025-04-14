@@ -1,7 +1,8 @@
-export interface NavLinkType {
-    label: string,
-    link: string
-}
+export type NavItem = {
+    label: string
+    href: string
+    dropdown?: NavItem[]
+  }
 
 export interface Project {
     id: number,
@@ -12,4 +13,5 @@ export interface Project {
     desc2?: string,
     desc3?: string
     gallery: string[]
+    bgClass: string
 }
