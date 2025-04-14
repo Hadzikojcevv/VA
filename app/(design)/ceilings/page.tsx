@@ -3,10 +3,11 @@ import React from "react";
 
 const Ceilings = () => {
   return (
-    <main className="pt-[88px] h-[100dvh] flex justify-center items-center ">
+    <main className="pt-[88px] h-[100dvh] flex justify-center items-center bg-[url('/common/stretch2.png')] bg-cover bg-no-repeat bg-top">
       <TypingEffect
+        className="text-white/90"
         words={[
-          "Comming Soon...",
+          "Coming Soon...",
           "Modern...",
           "Ellegant...",
           "Futuristic...",

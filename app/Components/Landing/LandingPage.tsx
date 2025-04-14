@@ -4,11 +4,11 @@ import Overlay from "../Common/Overlay";
 
 const LandingPage = () => {
   return (
-    <section className="flex flex-col lg:flex-row h-[100dvh] max-h-screen text-white overflow-hidden 1">
-      <div className="basis-1/2 flex lg:flex-col justify-between order-1 lg:order-2 1">
+    <section className="flex flex-col lg:flex-row h-[100dvh] max-h-screen text-white overflow-hidden gap-1">
+      <div className="basis-1/2 flex lg:flex-col justify-between order-1 lg:order-2 gap-1">
         <Link
           href={"/ceilings"}
-          className={`bg-[url('/common/stretchCeiling.jpeg')] bg-cover bg-no-repeat bg-right lg:bg-top text-center basis-1/2 font-titles flex justify-center items-center leading-11 text-6xl order-2 lg:order-1 lg:text-[80px] hover:lg:text-[90px] font-bold uppercase tracking-tighter text-white/85 hover:text-white transition-all ease-in-out duration-100 lg:leading-15 `}
+          className={`bg-[url('/common/stretch2.png')] bg-cover bg-no-repeat bg-right lg:bg-top text-center basis-1/2 font-titles flex justify-center items-center leading-11 text-6xl order-2 lg:order-1 lg:text-[80px] hover:lg:text-[90px] font-bold uppercase tracking-tighter text-white/85 hover:text-white transition-all ease-in-out duration-100 lg:leading-15 `}
         >
           <Overlay className="w-full h-full bg-black/20 flex justify-center items-center">
             <>

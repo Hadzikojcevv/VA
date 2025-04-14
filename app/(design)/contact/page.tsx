@@ -3,7 +3,7 @@ import React from "react";
 const ContactPage = () => {
   return (
     <div className="min-h-screen bg-white text-gray-800 px-6 py-[88px] flex justify-center items-center">
-      <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 basis-1/2">
+      <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 basis-full lg:basis-1/2">
         {/* Contact Form */}
         <div>
           <h2 className="text-3xl font-semibold mb-6 tracking-tighter">Get in Touch</h2>

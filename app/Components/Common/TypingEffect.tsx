@@ -5,9 +5,10 @@ import { motion } from 'framer-motion';
 
 interface TypingEffectProps {
     words: string[]
+    className?: string
 }
 
-const TypingEffect = ({words}: TypingEffectProps) => {
+const TypingEffect = ({words, className}: TypingEffectProps) => {
   const [index, setIndex] = useState(0); // Which word
   const [subIndex, setSubIndex] = useState(0); // How many characters shown
   const [deleting, setDeleting] = useState(false);
@@ -40,7 +41,7 @@ const TypingEffect = ({words}: TypingEffectProps) => {
   }, []);
 
   return (
-    <div className="text-5xl md:text-6xl 2xl:text-9xl tracking-tighter font-bold text-gray-800 text-center">
+    <div className={`text-5xl md:text-6xl 2xl:text-8xl tracking-tighter font-bold text-center ${className && className}`}>
       <motion.span
         key={index}
         initial={{ opacity: 0.5 }}

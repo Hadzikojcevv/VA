@@ -2,15 +2,13 @@ import { projects } from "@/app/Components/InteriorDesign/ProjectsSection";
 import Image from "next/image";
 import React from "react";
 
-interface ProductPageProps {
-  params: {
-    id: string;
-  };
-}
-
-const ProjectPage = ({ params }: ProductPageProps) => {
-  console.log(params.id);
-  const project = projects.find((pro) => pro.id === +params.id);
+const ProjectPage = async ({
+  params,
+}: {
+  params: Promise<{ id: string }>
+}) => {
+  const { id } = await params
+  const project = projects.find((pro) => pro.id === +id);
 
   return (
     <>

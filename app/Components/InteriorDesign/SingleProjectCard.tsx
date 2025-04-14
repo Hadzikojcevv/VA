@@ -77,6 +77,7 @@ const SingleProjectCard = ({ project, index }: SingleProjectCardProps) => {
           delay: 7000,
           disableOnInteraction: false,
         }}
+        loop={true}
         className={`${
           project.bgClass === "cover" ? "basis-3/6" : "basis-3/5"
         } `}

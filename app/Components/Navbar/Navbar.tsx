@@ -1,15 +1,16 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 import { NavItem } from "@/app/Types/Types";
 import Image from "next/image";
 import Close from "../Icons/Close";
 import Bars from "../Icons/Bars";
+import { usePathname } from "next/navigation";
 
 const navItems: NavItem[] = [
-  { label: "Stretch Ceilings", href: "/stretch-ceilings" },
+  { label: "Stretch Ceilings", href: "/ceilings" },
   { label: "Product Sourcing", href: "/product-sourcing" },
   {
     label: "Projects",
@@ -24,8 +25,18 @@ const navItems: NavItem[] = [
 ];
 
 export default function Navbar() {
+
+  const pathname = usePathname()
+
   const [mobileOpen, setMobileOpen] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);
+
+  console.log(pathname)
+
+  useEffect(() => {
+    setMobileOpen(false)
+    setDropdownOpen(false)
+  }, [pathname])
 
   return (
     <nav className="bg-white shadow-md fixed w-full z-50">
