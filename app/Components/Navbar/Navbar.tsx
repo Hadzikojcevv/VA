@@ -40,7 +40,7 @@ export default function Navbar() {
 
   return (
     <nav className="bg-white shadow-md fixed w-full z-50">
-      <div className="container mx-auto px-4 lg:px-0 py-2 flex justify-between items-center">
+      <div className="w-[95%] m-auto px-4 lg:px-0 py-2 flex justify-between items-center">
         <Link href="/interior-design" className="text-xl font-bold flex items-center gap-4 tracking-tighter uppercase">
           <Image
             src={"/common/VA_logo.png"}

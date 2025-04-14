@@ -73,10 +73,10 @@ const Footer = () => {
       <div className="w-[95%] m-auto">
         <div className="flex justify-center lg:justify-between mb-[10vh]">
           <div className="basis-[90%] lg:basis-1/2 ">
-            <p className="text-[40px] lg:text-[100px] font-black uppercase tracking-tight mb-0">
+            <p className="text-[40px] lg:text-[80px] 4xl:text-[100px] font-black uppercase tracking-tight mb-0">
               Freshen up{" "}
             </p>
-            <p className="text-[40px] lg:text-[100px] font-black uppercase tracking-tight lg:ml-[15%] -mt-[7%] sm:-mt-[4%] md:-mt-[4%] lg:-mt-[7.5%]">
+            <p className="text-[40px] lg:text-[80px] 4xl:text-[100px] font-black uppercase tracking-tight lg:ml-[15%] -mt-[7%] sm:-mt-[4%] md:-mt-[4%] lg:-mt-[7.5%] 2xl:-mt-[6%]">
               Your Living
             </p>
 
