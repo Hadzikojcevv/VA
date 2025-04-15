@@ -17,7 +17,7 @@ const LandingPage = () => {
           </Overlay>
         </Link>
         <Link
-          href={"/sourcing"}
+          href={"/product-sourcing"}
           className={`bg-[url('/common/productSourcing.jpg')] bg-cover bg-no-repeat lg:bg-center text-center basis-1/2 font-titles flex justify-center items-center leading-11 text-6xl order-2 lg:order-1 lg:text-[80px] hover:lg:text-[90px] font-bold uppercase tracking-tighter text-white/85 hover:text-white transition-all ease-in-out duration-100 lg:leading-15 `}
         >
           <Overlay className="w-full h-full bg-black/20 flex justify-center items-center">
