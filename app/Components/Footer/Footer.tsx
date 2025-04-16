@@ -38,17 +38,9 @@ const footerLists: FooterList[] = [
     title: "Social Media",
     links: [
       {
-        link: "/instagram",
+        link: "https://www.instagram.com/vaconcepts.mk/?hl=en",
         label: "Instagram",
-      },
-      {
-        link: "/facebook",
-        label: "Facebook",
-      },
-      {
-        link: "/LinkedIn",
-        label: "LinkedIn",
-      },
+      }
     ],
   },
   {

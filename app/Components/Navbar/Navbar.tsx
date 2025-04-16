@@ -90,7 +90,7 @@ export default function Navbar() {
               <Link
                 key={index}
                 href={item.href}
-                className="font-medium hover:text-blue-600 transition"
+                className="font-medium hover:underline hover:scale-105 ease-in-out underline-offset-4 transition"
               >
                 {item.label}
               </Link>
