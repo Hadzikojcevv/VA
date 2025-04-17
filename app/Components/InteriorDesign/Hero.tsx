@@ -56,6 +56,7 @@ const Hero = () => {
               className="w-full h-full object-cover"
               width={1920}
               height={1080}
+              priority
             />
             <p
               className={`absolute bottom-2 right-2 font-thin text-2xl md:text-4xl lg:text-6xl tracking-widest text-white/60`}
