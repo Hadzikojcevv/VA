@@ -17,10 +17,6 @@ const footerLists: FooterList[] = [
     title: "About",
     links: [
       {
-        link: "/about-us",
-        label: "Our Story",
-      },
-      {
         link: "/ceilings",
         label: "Stretch Ceilings",
       },
