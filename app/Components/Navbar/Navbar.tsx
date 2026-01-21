@@ -2,41 +2,41 @@
 
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 import { NavItem } from "@/app/Types/Types";
 import Image from "next/image";
 import Close from "../Icons/Close";
 import Bars from "../Icons/Bars";
 import { usePathname } from "next/navigation";
-
-const navItems: NavItem[] = [
-  { label: "Stretch Ceilings", href: "/ceilings" },
-  { label: "Product Sourcing", href: "/product-sourcing" },
-  {
-    label: "Projects",
-    href: "/design-projects",
-    // dropdown: [
-    //   { label: 'Stretch Ceilings', href: '/stretch-ceilings' },
-    //   { label: 'Product Sourcing', href: '/products' },
-    //   { label: 'Projects', href: '/projects' },
-    // ],
-  },
-  { label: "Contact", href: "/contact" },
-];
+import { useTranslations } from "next-intl";
+import LocaleSwitcher from "../Common/LocaleSwitcher";
 
 export default function Navbar() {
-
-  const pathname = usePathname()
+  const t = useTranslations();
+  const pathname = usePathname();
 
   const [mobileOpen, setMobileOpen] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);
 
-  console.log(pathname)
-
   useEffect(() => {
-    setMobileOpen(false)
-    setDropdownOpen(false)
-  }, [pathname])
+    setMobileOpen(false);
+    setDropdownOpen(false);
+  }, [pathname]);
+
+  const isCeilingsPage = pathname.endsWith("/ceilings");
+  const isInteriorDesignPage = pathname.endsWith("/interior-design");
+
+  const firstNavItem: NavItem = isCeilingsPage
+    ? { label: t("nav.interiorDesign"), href: "/interior-design" }
+    : isInteriorDesignPage
+      ? { label: t("nav.stretchCeilings"), href: "/ceilings" }
+      : { label: t("nav.stretchCeilings"), href: "/ceilings" };
+
+  const navItems: NavItem[] = [
+    firstNavItem,
+    { label: t("nav.projects"), href: "/design-projects" },
+    { label: t("nav.contact"), href: "/contact" },
+  ];
 
   return (
     <nav className="bg-white shadow-md fixed w-full z-50">
@@ -98,6 +98,10 @@ export default function Navbar() {
           )}
         </div>
 
+        <div className="hidden md:flex">
+          <LocaleSwitcher />
+        </div>
+
         {/* Mobile Menu Button */}
         <button
           className="md:hidden text-gray-800"
@@ -117,6 +121,9 @@ export default function Navbar() {
             exit={{ opacity: 0, height: 0 }}
             className="md:hidden bg-white shadow-md px-4 pt-2 pb-4 h-screen"
           >
+            <div className="py-2">
+              <LocaleSwitcher />
+            </div>
             {navItems.map((item, index) =>
               item.dropdown ? (
                 <div

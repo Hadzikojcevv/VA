@@ -1,11 +1,5 @@
-import React from 'react'
+import {redirect} from 'next/navigation';
 
-const Ceilins = () => {
-  return (
-    <section className="h-[100dvh]">
-
-    </section>
-  )
+export default function StretchCeilingsRedirect() {
+  redirect('/en/stretch-ceilings');
 }
-
-export default Ceilins
