@@ -70,7 +70,9 @@
     "location": "Location"
   },
   "ceilingsPage": {
-    "words": ["Coming Soon...", "Modern...", "Elegant...", "Futuristic...", "Stretch Ceilings!"]
+    "words": ["Coming Soon...", "Modern...", "Elegant...", "Futuristic...", "Stretch Ceilings!"],
+    "whyChooseTitle": "Why Choose Stretch Ceilings",
+    "whyChooseDesc": "Stretch ceilings bring modern design, flawless surfaces, and integrated lighting into every home. From bedrooms to kitchens, our systems deliver a clean, stylish finish in just one day. Explore these residential projects to see how stretch ceilings can transform your space."
   },
   "projects": {
     "1": {

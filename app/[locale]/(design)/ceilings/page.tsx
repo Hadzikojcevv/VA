@@ -1,17 +1,25 @@
-import Overlay from "@/app/Components/Common/Overlay";
-import TypingEffect from "@/app/Components/Common/TypingEffect";
-import {getTranslations} from "next-intl/server";
+import CeilingsHero from "@/app/Components/Ceilings/CeilingsHero";
+import SectionTitle from "@/app/Components/Common/SectionTitle";
+import { getTranslations } from "next-intl/server";
 import React from "react";
 
 export default async function Ceilings() {
   const t = await getTranslations();
-  const words = t.raw("ceilingsPage.words") as string[];
+  const slogans = t.raw("ceilingsPage.words") as string[];
 
   return (
-    <main className="pt-[68px] h-[100dvh]  bg-[url('/common/caro/Stretchceelings.webp')] bg-cover bg-no-repeat bg-top ">
-      <Overlay className="!bg-black/30 flex justify-center items-center">
-        <TypingEffect className="text-white/90" words={words} />
-      </Overlay>
+    <main>
+      <CeilingsHero videoSrc="/common/hero.mp4" slogans={slogans} />
+
+      <section className="py-14 lg:py-20">
+        <div className="w-[92%] max-w-5xl mx-auto">
+          <SectionTitle text={t("ceilingsPage.whyChooseTitle")} />
+
+          <p className="mt-6 text-center font-normal text-main-dark/80 tracking-tighter text-lg lg:text-xl leading-[125%] max-w-3xl mx-auto">
+            {t("ceilingsPage.whyChooseDesc")}
+          </p>
+        </div>
+      </section>
     </main>
   );
 }
