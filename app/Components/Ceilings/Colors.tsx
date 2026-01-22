@@ -11,11 +11,11 @@ import Image from "next/image";
 import SectionTitle from "../Common/SectionTitle";
 import { useTranslations } from "next-intl";
 
-type DesignsProps = {
+type ColorsProps = {
   images: string[];
 };
 
-export default function Designs({ images }: DesignsProps) {
+export default function Colors({ images }: ColorsProps) {
   const t = useTranslations();
 
   const getTitleFromImage = (imagePath: string): string => {
@@ -23,11 +23,11 @@ export default function Designs({ images }: DesignsProps) {
     const filename = imagePath.split("/").pop() || "";
     // Remove file extension
     const withoutExt = filename.replace(/\.(webp|jpg|jpeg|png)$/i, "");
-    // Remove dimension pattern (e.g., _2100x, _1728x, _1296x)
+    // Remove dimension pattern (e.g., _2100x, _1728x, _1296x) if present
     const withoutDimensions = withoutExt.replace(/_\d+x$/i, "");
-    // Replace underscores with spaces and capitalize words
+    // Replace underscores and handle spaces, then capitalize words
     return withoutDimensions
-      .split("_")
+      .split(/[_\s]+/)
       .map((word) => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
       .join(" ");
   };
@@ -35,9 +35,9 @@ export default function Designs({ images }: DesignsProps) {
   return (
     <section className="py-14 lg:py-20 bg-white">
       <div className="w-[92%] max-w-7xl mx-auto mb-10 lg:mb-14">
-        <SectionTitle text={t("ceilingsPage.designsTitle")} />
+        <SectionTitle text={t("ceilingsPage.colorsTitle")} />
         <p className="mt-6 text-center font-normal text-main-dark/80 tracking-tighter text-lg lg:text-xl leading-[125%] max-w-3xl mx-auto">
-          {t("ceilingsPage.designsDesc")}
+          {t("ceilingsPage.colorsDesc")}
         </p>
       </div>
 
