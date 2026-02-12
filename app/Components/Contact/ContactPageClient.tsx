@@ -1,11 +1,30 @@
 "use client";
 
 import React from "react";
+import Image from "next/image";
 import { useForm, ValidationError } from "@formspree/react";
-import {useTranslations} from "next-intl";
+import { useTranslations, useLocale } from "next-intl";
 
 const ContactPageClient = () => {
   const t = useTranslations();
+  const locale = useLocale();
+  const isGreek = locale === "el";
+  const phoneNumber = isGreek ? "+306988993838" : "+38971333086";
+  const emailAddress = isGreek ? "vaconcepts.gr@gmail.com" : "office@conceptsva.com";
+  
+  // Locale-aware social media links
+  const instagramLink = locale === "el" 
+    ? "https://www.instagram.com/vaconcepts.gr/" 
+    : locale === "mk"
+    ? "https://www.instagram.com/vaconcepts.mk/"
+    : "https://www.instagram.com/vaconcepts.mk/";
+  
+  const facebookLink = locale === "el"
+    ? "https://www.facebook.com/profile.php?id=61581507848379"
+    : locale === "mk"
+    ? "https://www.facebook.com/profile.php?id=61574902241239"
+    : "https://www.facebook.com/profile.php?id=61574902241239";
+  
   const [state, handleSubmit] = useForm("mzzeqaez");
 
   if (state.succeeded) {
@@ -17,10 +36,10 @@ const ContactPageClient = () => {
           <p className="mb-4">{t("contactPage.dream")}</p>
           <ul className="space-y-4 text-sm">
             <li>
-              <strong>{t("contactPage.phone")}:</strong> +38971333086
+              <strong>{t("contactPage.phone")}:</strong> {phoneNumber}
             </li>
             <li>
-              <strong>Email:</strong> office@conceptsva.com
+              <strong>Email:</strong> {emailAddress}
             </li>
             <li>
               <strong>{t("contactPage.address")}:</strong> Marshal Tito 198, Gevgelija, North Macedonia
@@ -31,11 +50,34 @@ const ContactPageClient = () => {
             <h4 className="font-medium mb-2">{t("contactPage.follow")}</h4>
             <div className="flex justify-center gap-4">
               <a
-                href="https://www.instagram.com/vaconcepts.mk/?hl=en"
-                className="hover:underline"
+                href={instagramLink}
                 target="_blank"
+                rel="noopener noreferrer"
+                className="hover:scale-110 transition ease-in-out"
+                aria-label="Instagram"
               >
-                Instagram
+                <Image
+                  src="/common/instagram.png"
+                  alt="Instagram"
+                  width={24}
+                  height={24}
+                  className="hover:opacity-80 transition-opacity"
+                />
+              </a>
+              <a
+                href={facebookLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:scale-110 transition ease-in-out"
+                aria-label="Facebook"
+              >
+                <Image
+                  src="/common/fb.png"
+                  alt="Facebook"
+                  width={24}
+                  height={24}
+                  className="hover:opacity-80 transition-opacity"
+                />
               </a>
             </div>
           </div>
@@ -93,10 +135,10 @@ const ContactPageClient = () => {
           <p className="mb-4">{t("contactPage.dream")}</p>
           <ul className="space-y-4 text-sm">
             <li>
-              <strong>{t("contactPage.phone")}:</strong> +38971333086
+              <strong>{t("contactPage.phone")}:</strong> {phoneNumber}
             </li>
             <li>
-              <strong>Email:</strong> office@conceptsva.com
+              <strong>Email:</strong> {emailAddress}
             </li>
             <li>
               <strong>{t("contactPage.address")}:</strong> Marshal Tito 198, Gevgelija, North Macedonia
@@ -107,11 +149,34 @@ const ContactPageClient = () => {
             <h4 className="font-medium mb-2">{t("contactPage.follow")}</h4>
             <div className="flex gap-4">
               <a
-                href="https://www.instagram.com/vaconcepts.mk/?hl=en"
-                className="hover:underline"
+                href={instagramLink}
                 target="_blank"
+                rel="noopener noreferrer"
+                className="hover:scale-110 transition ease-in-out"
+                aria-label="Instagram"
               >
-                Instagram
+                <Image
+                  src="/common/instagram.png"
+                  alt="Instagram"
+                  width={24}
+                  height={24}
+                  className="hover:opacity-80 transition-opacity"
+                />
+              </a>
+              <a
+                href={facebookLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:scale-110 transition ease-in-out"
+                aria-label="Facebook"
+              >
+                <Image
+                  src="/common/fb.png"
+                  alt="Facebook"
+                  width={24}
+                  height={24}
+                  className="hover:opacity-80 transition-opacity"
+                />
               </a>
             </div>
           </div>
