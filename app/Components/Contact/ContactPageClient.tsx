@@ -48,23 +48,13 @@ const ContactPageClient = () => {
           // GoHighLevel form for MK locale only
           <div className="mb-12">
             <h2 className="text-3xl font-semibold mb-6 tracking-tighter text-center">{t("contactPage.getInTouch")}</h2>
-            <div
-              style={{
-                width: "100%",
-                height: "613px",
-                borderRadius: "3px",
-                overflow: "hidden",
-                margin: "0 auto",
-                maxWidth: "800px",
-              }}
-            >
+            <div className="w-full mx-auto max-w-[800px] rounded-[3px]">
               <iframe
                 src="https://api.leadconnectorhq.com/widget/form/mtq06TVfpocLpYvXOX8F"
+                className="w-full border-none rounded-[3px]"
                 style={{
-                  width: "100%",
-                  height: "100%",
-                  border: "none",
-                  borderRadius: "3px",
+                  minHeight: "800px",
+                  height: "auto",
                 }}
                 id="inline-mtq06TVfpocLpYvXOX8F"
                 data-layout='{"id":"INLINE"}'
@@ -75,7 +65,6 @@ const ContactPageClient = () => {
                 data-deactivation-type="neverDeactivate"
                 data-deactivation-value=""
                 data-form-name="FORMA 1\ Dizajn+Plafon"
-                data-height="613"
                 data-layout-iframe-id="inline-mtq06TVfpocLpYvXOX8F"
                 data-form-id="mtq06TVfpocLpYvXOX8F"
                 title="FORMA 1\ Dizajn+Plafon"
