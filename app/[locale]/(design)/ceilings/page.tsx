@@ -3,6 +3,7 @@ import WhyChooseSection from "@/app/Components/Ceilings/WhyChooseSection";
 import Designs from "@/app/Components/Ceilings/Designs";
 import Colors from "@/app/Components/Ceilings/Colors";
 import BecomeAPartner from "@/app/Components/Ceilings/BecomeAPartner";
+import GoHighLevelForm from "@/app/Components/Ceilings/GoHighLevelForm";
 import { getTranslations } from "next-intl/server";
 import React from "react";
 
@@ -41,6 +42,7 @@ export default async function Ceilings() {
       <Designs images={ceilingDesignImages} />
       <Colors images={ceilingColorImages} />
       <BecomeAPartner />
+      <GoHighLevelForm />
     </main>
   );
 }
