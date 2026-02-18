@@ -6,9 +6,10 @@ import { useLocale } from "next-intl";
 export default function GoHighLevelForm() {
   const locale = useLocale();
   const isMacedonian = locale === "mk";
+  const isGreek = locale === "el";
 
   useEffect(() => {
-    if (isMacedonian) {
+    if (isMacedonian || isGreek) {
       // Check if script is already loaded
       const existingScript = document.querySelector(
         'script[src="https://link.msgsndr.com/js/form_embed.js"]'
@@ -22,9 +23,9 @@ export default function GoHighLevelForm() {
         document.body.appendChild(script);
       }
     }
-  }, [isMacedonian]);
+  }, [isMacedonian, isGreek]);
 
-  if (!isMacedonian) {
+  if (!isMacedonian && !isGreek) {
     return null;
   }
 
@@ -32,26 +33,51 @@ export default function GoHighLevelForm() {
     <section className="py-14 lg:py-20 bg-white">
       <div className="w-[92%] max-w-5xl mx-auto">
         <div className="w-full rounded-[3px]">
-          <iframe
-            src="https://api.leadconnectorhq.com/widget/form/mtq06TVfpocLpYvXOX8F"
-            className="w-full border-none rounded-[3px]"
-            style={{
-              minHeight: "800px",
-              height: "auto",
-            }}
-            id="inline-mtq06TVfpocLpYvXOX8F"
-            data-layout='{"id":"INLINE"}'
-            data-trigger-type="alwaysShow"
-            data-trigger-value=""
-            data-activation-type="alwaysActivated"
-            data-activation-value=""
-            data-deactivation-type="neverDeactivate"
-            data-deactivation-value=""
-            data-form-name="FORMA 1\ Dizajn+Plafon"
-            data-layout-iframe-id="inline-mtq06TVfpocLpYvXOX8F"
-            data-form-id="mtq06TVfpocLpYvXOX8F"
-            title="FORMA 1\ Dizajn+Plafon"
-          />
+          {isMacedonian && (
+            <iframe
+              src="https://api.leadconnectorhq.com/widget/form/mtq06TVfpocLpYvXOX8F"
+              className="w-full border-none rounded-[3px]"
+              style={{
+                minHeight: "800px",
+                height: "auto",
+              }}
+              id="inline-mtq06TVfpocLpYvXOX8F"
+              data-layout='{"id":"INLINE"}'
+              data-trigger-type="alwaysShow"
+              data-trigger-value=""
+              data-activation-type="alwaysActivated"
+              data-activation-value=""
+              data-deactivation-type="neverDeactivate"
+              data-deactivation-value=""
+              data-form-name="FORMA 1\ Dizajn+Plafon"
+              data-layout-iframe-id="inline-mtq06TVfpocLpYvXOX8F"
+              data-form-id="mtq06TVfpocLpYvXOX8F"
+              title="FORMA 1\ Dizajn+Plafon"
+            />
+          )}
+          {isGreek && (
+            <iframe
+              src="https://api.leadconnectorhq.com/widget/form/MRPeimBN2HSkNxTLXYkr"
+              className="w-full border-none rounded-[3px]"
+              style={{
+                minHeight: "897px",
+                height: "auto",
+              }}
+              id="inline-MRPeimBN2HSkNxTLXYkr"
+              data-layout='{"id":"INLINE"}'
+              data-trigger-type="alwaysShow"
+              data-trigger-value=""
+              data-activation-type="alwaysActivated"
+              data-activation-value=""
+              data-deactivation-type="neverDeactivate"
+              data-deactivation-value=""
+              data-form-name="FORM FOR WEBSITE "
+              data-height="897"
+              data-layout-iframe-id="inline-MRPeimBN2HSkNxTLXYkr"
+              data-form-id="MRPeimBN2HSkNxTLXYkr"
+              title="FORM FOR WEBSITE "
+            />
+          )}
         </div>
       </div>
     </section>

@@ -25,9 +25,9 @@ const ContactPageClient = () => {
     ? "https://www.facebook.com/profile.php?id=61574902241239"
     : "https://www.facebook.com/profile.php?id=61574902241239";
 
-  // Load GoHighLevel script for MK locale
+  // Load GoHighLevel script for MK and EL locales
   useEffect(() => {
-    if (isMacedonian) {
+    if (isMacedonian || isGreek) {
       const existingScript = document.querySelector(
         'script[src="https://link.msgsndr.com/js/form_embed.js"]'
       );
@@ -39,36 +39,61 @@ const ContactPageClient = () => {
         document.body.appendChild(script);
       }
     }
-  }, [isMacedonian]);
+  }, [isMacedonian, isGreek]);
 
   return (
     <div className="min-h-screen bg-white text-gray-800 px-6 py-[88px] flex justify-center items-center">
       <div className="max-w-6xl mx-auto w-full">
-        {isMacedonian && (
-          // GoHighLevel form for MK locale only
+        {(isMacedonian || isGreek) && (
+          // GoHighLevel form for MK and EL locales
           <div className="mb-12">
             <h2 className="text-3xl font-semibold mb-6 tracking-tighter text-center">{t("contactPage.getInTouch")}</h2>
             <div className="w-full mx-auto max-w-[800px] rounded-[3px]">
-              <iframe
-                src="https://api.leadconnectorhq.com/widget/form/mtq06TVfpocLpYvXOX8F"
-                className="w-full border-none rounded-[3px]"
-                style={{
-                  minHeight: "800px",
-                  height: "auto",
-                }}
-                id="inline-mtq06TVfpocLpYvXOX8F"
-                data-layout='{"id":"INLINE"}'
-                data-trigger-type="alwaysShow"
-                data-trigger-value=""
-                data-activation-type="alwaysActivated"
-                data-activation-value=""
-                data-deactivation-type="neverDeactivate"
-                data-deactivation-value=""
-                data-form-name="FORMA 1\ Dizajn+Plafon"
-                data-layout-iframe-id="inline-mtq06TVfpocLpYvXOX8F"
-                data-form-id="mtq06TVfpocLpYvXOX8F"
-                title="FORMA 1\ Dizajn+Plafon"
-              />
+              {isMacedonian && (
+                <iframe
+                  src="https://api.leadconnectorhq.com/widget/form/mtq06TVfpocLpYvXOX8F"
+                  className="w-full border-none rounded-[3px]"
+                  style={{
+                    minHeight: "800px",
+                    height: "auto",
+                  }}
+                  id="inline-mtq06TVfpocLpYvXOX8F"
+                  data-layout='{"id":"INLINE"}'
+                  data-trigger-type="alwaysShow"
+                  data-trigger-value=""
+                  data-activation-type="alwaysActivated"
+                  data-activation-value=""
+                  data-deactivation-type="neverDeactivate"
+                  data-deactivation-value=""
+                  data-form-name="FORMA 1\ Dizajn+Plafon"
+                  data-layout-iframe-id="inline-mtq06TVfpocLpYvXOX8F"
+                  data-form-id="mtq06TVfpocLpYvXOX8F"
+                  title="FORMA 1\ Dizajn+Plafon"
+                />
+              )}
+              {isGreek && (
+                <iframe
+                  src="https://api.leadconnectorhq.com/widget/form/MRPeimBN2HSkNxTLXYkr"
+                  className="w-full border-none rounded-[3px]"
+                  style={{
+                    minHeight: "897px",
+                    height: "auto",
+                  }}
+                  id="inline-MRPeimBN2HSkNxTLXYkr"
+                  data-layout='{"id":"INLINE"}'
+                  data-trigger-type="alwaysShow"
+                  data-trigger-value=""
+                  data-activation-type="alwaysActivated"
+                  data-activation-value=""
+                  data-deactivation-type="neverDeactivate"
+                  data-deactivation-value=""
+                  data-form-name="FORM FOR WEBSITE "
+                  data-height="897"
+                  data-layout-iframe-id="inline-MRPeimBN2HSkNxTLXYkr"
+                  data-form-id="MRPeimBN2HSkNxTLXYkr"
+                  title="FORM FOR WEBSITE "
+                />
+              )}
             </div>
           </div>
         )}
